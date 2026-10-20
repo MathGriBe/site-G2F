@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G2F Transportes (rascunho) | Conectando caminhos, acelerando conquistas</title>
+  <meta name="description" content="A G2F Transportes conecta operações portuárias a diferentes regiões do Brasil, com frota bitrem para transporte de contêineres em importação e exportação.">
+
+  <!-- Fontes usadas no Figma -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&family=Inter:wght@600;700;800&family=Krub:wght@600&family=Oswald:wght@500;700&family=Poppins:wght@700&family=Roboto+Condensed:wght@900&family=Roboto:wght@500;700&family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===================== CABEÇALHO ===================== -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="#inicio" class="header__logo" aria-label="G2F Transportes - início">
+        <img src="img/logo.png" alt="G2F Transportes" width="205" height="49">
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Menu principal">
+        <ul class="nav__list">
+          <li><a href="#inicio" class="nav__link">Home</a></li>
+          <li><a href="#sobre" class="nav__link">Conheça G2F</a></li>
+          <li><a href="#presenca" class="nav__link">Clientes</a></li>
+          <li><a href="#atuacao" class="nav__link">Serviços</a></li>
+          <li><a href="#contato" class="nav__link">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__social">
+        <a href="#" aria-label="Instagram da G2F"><img src="img/icon-instagram.png" alt="" width="40" height="43"></a>
+        <a href="mailto:g2ftransportes@gmail.com" aria-label="Enviar e-mail"><img src="img/icon-email.png" alt="" width="40" height="43"></a>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="inicio">
+      <div class="hero__content container">
+        <h1 class="hero__title">
+          Conectando <span class="amarelo">caminhos,</span><br>
+          acelerando <span class="amarelo">conquistas.</span>
+        </h1>
+        <a href="#atuacao" class="btn btn--hero">Nossas Soluções</a>
+      </div>
+    </section>
+
+
+    <!-- ===================== CONHEÇA A G2F ===================== -->
+    <section class="sobre" id="sobre">
+      <span class="texto-vertical texto-vertical--direita" aria-hidden="true">G2F</span>
+      <div class="sobre__grid container">
+        <div class="sobre__imagem reveal">
+          <img src="img/frota-sobre.png" alt="Três cavalos mecânicos da frota G2F" width="772" height="524" loading="lazy">
+        </div>
+        <div class="sobre__texto reveal">
+          <h2 class="sobre__titulo">CONHEÇA A G2F <span class="amarelo">TRANSPORTE</span></h2>
+          <span class="barra"></span>
+          <p>A G2F foi fundada em 2024, com o objetivo de oferecer ao mercado serviços logísticos personalizados e sustentáveis. Com o tempo, consolidamos um alto padrão de qualidade na prestação de nossos serviços.</p>
+          <p>Nosso compromisso é oferecer soluções eficientes no transporte rodoviário de cargas, destacando-nos pela agilidade, segurança e confiabilidade.</p>
+          <p>Trabalhamos continuamente para garantir a satisfação de nossos clientes, proporcionando tranquilidade, confiança e a certeza de um serviço de transporte de alto nível.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== VALORES E MISSÃO ===================== -->
+    <section class="valores" id="valores">
+      <span class="texto-vertical texto-vertical--esquerda" aria-hidden="true">VALORES</span>
+      <span class="texto-vertical texto-vertical--direita" aria-hidden="true">MISSÃO</span>
+
+      <div class="valores__topo container">
+        <div class="valores__intro reveal">
+          <div class="valores__etiqueta">
+            <img src="img/icon-escudo.png" alt="" width="54" height="51">
+            <span>o que nos move</span>
+            <i></i>
+          </div>
+          <h2 class="valores__titulo">Valores e <span class="amarelo">Missão</span></h2>
+          <span class="barra"></span>
+          <p class="valores__frase">
+            Mais que transportar cargas, entregamos <span class="amarelo">confiança</span>, conectamos <span class="amarelo">destinos</span>
+            e impulsionamos <span class="amarelo">negócios</span>.
+          </p>
+        </div>
+        <div class="valores__foto reveal">
+          <img src="img/valores-bg.jpg" alt="Caminhão bitrem na estrada ao pôr do sol" width="1103" height="520" loading="lazy">
+        </div>
+      </div>
+
+      <div class="valores__cards container">
+        <article class="card-valor reveal">
+          <div class="card-valor__icone">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 11l3 3 5-6"/><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg>
+          </div>
+          <h3>RESPEITO ABSOLUTO</h3>
+          <span class="barra barra--centro"></span>
+          <p>Respeitamos prazos, processos e pessoas. Entendemos que a pontualidade e o cuidado em cada detalhe constroem relações sólidas e duradouras.</p>
+        </article>
+        <article class="card-valor reveal">
+          <div class="card-valor__icone">
+            <img src="img/icon-alvo.png" alt="" width="40" height="40">
+          </div>
+          <h3>FOCO LOGÍSTICO</h3>
+          <span class="barra barra--centro"></span>
+          <p>Atuamos com planejamento, tecnologia e eficiência para garantir que cada entrega aconteça com segurança, agilidade e inteligência, do início ao destino final.</p>
+        </article>
+        <article class="card-valor reveal">
+          <div class="card-valor__icone">
+            <img src="img/icon-seguranca.png" alt="" width="40" height="40">
+          </div>
+          <h3>RESPEITO ABSOLUTO</h3>
+          <span class="barra barra--centro"></span>
+          <p>Nosso compromisso vai além do transporte. Somos parceiros dos nossos clientes, buscando soluções reais, com responsabilidade e dedicação em cada entrega.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== PRESENÇA NACIONAL ===================== -->
+    <section class="presenca" id="presenca">
+      <div class="presenca__fundo"></div>
+      <img class="presenca__mapa" src="img/mapa-brasil.png" alt="" aria-hidden="true" width="661" height="664" loading="lazy">
+
+      <div class="presenca__conteudo container">
+        <img class="presenca__logo" src="img/logo.png" alt="G2F Transportes" width="205" height="49" loading="lazy">
+
+        <h2 class="presenca__titulo reveal">
+          Atendimento <span class="amarelo">nacional.</span><br>
+          Logística <span class="amarelo">sem fronteiras.</span>
+        </h2>
+        <p class="presenca__desc reveal">A G2F Transportes conecta operações portuárias a diferentes regiões do Brasil, com frota bitrem preparada para o transporte de contêineres em importação e exportação.</p>
+
+        <div class="presenca__meio">
+          <div class="presenca__chamada reveal">
+            <p>Conectando caminhos,<br>acelerando <span class="amarelo">conquistas.</span></p>
+            <a href="#atuacao" class="btn btn--rotas">
+              Conheça nossas rotas
+              <svg viewBox="0 0 48 12" aria-hidden="true"><path d="M0 6h45M40 1l6 5-6 5"/></svg>
+            </a>
+          </div>
+
+          <div class="presenca__caminhao reveal">
+            <img src="img/caminhao-bitrem.png" alt="Caminhão bitrem Scania da G2F com dois contêineres" width="712" height="456" loading="lazy">
+          </div>
+
+          <div class="selo reveal">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2c3 3 4 6.5 4 10s-1 7-4 10c-3-3-4-6.5-4-10s1-7 4-10z"/></svg>
+            <span>Atuação<br>nacional</span>
+          </div>
+        </div>
+
+        <div class="faixas" aria-hidden="true"><i></i><i></i></div>
+
+        <div class="presenca__cards">
+          <article class="card-presenca reveal">
+            <img src="img/icon-mapa.png" alt="" width="163" height="132" loading="lazy">
+            <h3>Cobertura Nacional</h3>
+            <span class="barra barra--fina"></span>
+            <p>Presença em diferentes regiões do Brasil</p>
+          </article>
+          <article class="card-presenca reveal">
+            <img src="img/icon-bitrem.png" alt="" width="215" height="103" loading="lazy">
+            <h3>Frota Bitrem</h3>
+            <span class="barra barra--fina"></span>
+            <p>Veículos pesados para operação de alta capacidade</p>
+          </article>
+          <article class="card-presenca reveal">
+            <img src="img/icon-container.png" alt="" width="180" height="111" loading="lazy">
+            <h3>Operação portuária</h3>
+            <span class="barra barra--fina"></span>
+            <p>Importação e exportação de contêineres com eficiência</p>
+          </article>
+          <article class="card-presenca reveal">
+            <img src="img/logo-amarelo.png" alt="" width="256" height="61" loading="lazy">
+            <h3>Nova identidade</h3>
+            <span class="barra barra--fina"></span>
+            <p>Marca moderna, forte e alinhada ao setor logístico</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ATUAÇÃO ===================== -->
+    <section class="atuacao" id="atuacao">
+      <img class="atuacao__mapa" src="img/mapa-brasil.png" alt="" aria-hidden="true" width="661" height="664" loading="lazy">
+      <div class="container">
+        <h2 class="atuacao__titulo reveal">ATUAÇÃO</h2>
+        <span class="barra barra--centro barra--fina"></span>
+        <p class="atuacao__desc reveal">Na importação, realizamos a retirada do contêiner cheio no porto e o transporte até o cliente para a descarga da mercadoria. Depois, ocorre a devolução do contêiner vazio no depot do armador. Na exportação, efetuamos a retirada do contêiner vazio no depot do armador e o transporte até o cliente para a estufagem da carga. Por fim, entregamos o contêiner cheio no porto, no terminal de embarque.</p>
+        <img class="atuacao__logo" src="img/logo-amarelo.png" alt="G2F Transportes" width="256" height="61" loading="lazy">
+
+        <!-- Fluxo de importação: imagem inteira no desktop, etapas empilhadas no celular -->
+        <div class="fluxo reveal">
+          <img class="fluxo__completo" src="img/importacao.jpg" alt="Fluxo de importação: Porto (início), Cliente (meio), Depot do Armador (fim)" width="1394" height="272" loading="lazy">
+          <div class="fluxo__etapas">
+            <span class="fluxo__selo">IMPORTAÇÃO</span>
+            <img src="img/importacao-1.jpg" alt="Porto (início): retirada do contêiner cheio" loading="lazy">
+            <span class="fluxo__seta" aria-hidden="true"></span>
+            <img src="img/importacao-2.jpg" alt="Cliente (meio): descarga da mercadoria" loading="lazy">
+            <span class="fluxo__seta" aria-hidden="true"></span>
+            <img src="img/importacao-3.jpg" alt="Depot do Armador (fim): devolução do contêiner vazio" loading="lazy">
+          </div>
+        </div>
+
+        <div class="fluxo reveal">
+          <img class="fluxo__completo" src="img/exportacao.jpg" alt="Fluxo de exportação: Depot do Armador (início), Cliente (meio), Porto (fim)" width="1394" height="256" loading="lazy">
+          <div class="fluxo__etapas">
+            <span class="fluxo__selo">EXPORTAÇÃO</span>
+            <img src="img/exportacao-1.jpg" alt="Depot do Armador (início): retirada do contêiner vazio" loading="lazy">
+            <span class="fluxo__seta" aria-hidden="true"></span>
+            <img src="img/exportacao-2.jpg" alt="Cliente (meio): estufagem da carga" loading="lazy">
+            <span class="fluxo__seta" aria-hidden="true"></span>
+            <img src="img/exportacao-3.jpg" alt="Porto (fim): entrega do contêiner cheio" loading="lazy">
+          </div>
+        </div>
+
+        <ul class="diferenciais reveal">
+          <li><img src="img/icon-seguranca.png" alt="" width="61" height="61" loading="lazy"><span>Segurança em cada etapa</span></li>
+          <li><img src="img/icon-alvo.png" alt="" width="61" height="61" loading="lazy"><span>Pontualidade que move resultados</span></li>
+          <li><img src="img/icon-caminhao.png" alt="" width="61" height="61" loading="lazy"><span>Frota moderna e monitorada</span></li>
+          <li><img src="img/icon-global.png" alt="" width="61" height="61" loading="lazy"><span>Atendimento nacional, logística sem fronteiras</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== FROTA ===================== -->
+    <section class="frota" id="frota">
+      <span class="frota__marca" aria-hidden="true">FROTA</span>
+      <div class="frota__grid container-largo">
+        <div class="frota__lado">
+          <img class="frota__logo" src="img/logo.png" alt="G2F Transportes" width="205" height="49" loading="lazy">
+          <span class="frota__linha" aria-hidden="true"></span>
+          <div class="frota__imagem reveal">
+            <img src="img/frota.jpg" alt="Caminhão bitrem da G2F em um terminal portuário à noite" width="835" height="747" loading="lazy">
+          </div>
+        </div>
+        <div class="frota__texto reveal">
+          <h2 class="frota__titulo">SOBRE A<br>NOSSA FROTA</h2>
+          <span class="barra"></span>
+          <p class="frota__subtitulo">Tecnologia, monitoramento e desempenho para operações de alta capacidade.</p>
+
+          <ul class="frota__lista">
+            <li>
+              <img src="img/icon-local.png" alt="" width="52" height="52" loading="lazy">
+              <div><h3>Rastreamento em tempo real</h3><p>Veículos equipados com tecnologia para maior controle operacional.</p></div>
+            </li>
+            <li>
+              <img src="img/icon-manutencao.png" alt="" width="52" height="52" loading="lazy">
+              <div><h3>Manutenção preventiva</h3><p>Acompanhamento periódico para garantir segurança e continuidade das operações.</p></div>
+            </li>
+            <li>
+              <img src="img/icon-caminhao.png" alt="" width="52" height="52" loading="lazy">
+              <div><h3>Frota bitrem</h3><p>Operações com veículos de alta capacidade, preparados para o transporte de contêineres.</p></div>
+            </li>
+            <li>
+              <img src="img/icon-grafico.png" alt="" width="52" height="52" loading="lazy">
+              <div><h3>Mais controle logístico</h3><p>Informações mais precisas sobre cada viagem, com foco em transparência e desempenho.</p></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CARROSSEL ===================== -->
+    <!-- ESPAÇO PARA AS FOTOS DO CLIENTE
+         Para colocar uma foto: salve o arquivo na pasta img/ (ex.: img/carrossel-1.jpg)
+         e troque o <div class="carrossel__vazio">...</div> do slide por:
+         <img src="img/carrossel-1.jpg" alt="Descreva a foto aqui">
+         Para ter mais ou menos fotos, copie ou apague um <figure> inteiro. -->
+    <section class="carrossel" id="galeria" aria-roledescription="carrossel" aria-label="Galeria G2F">
+      <div class="carrossel__trilho" id="carrosselTrilho">
+        <figure class="carrossel__slide">
+          <div class="carrossel__vazio"><span>Imagem 1</span><small>img/carrossel-1.jpg</small></div>
+        </figure>
+        <figure class="carrossel__slide">
+          <div class="carrossel__vazio"><span>Imagem 2</span><small>img/carrossel-2.jpg</small></div>
+        </figure>
+        <figure class="carrossel__slide">
+          <div class="carrossel__vazio"><span>Imagem 3</span><small>img/carrossel-3.jpg</small></div>
+        </figure>
+      </div>
+      <button class="carrossel__btn carrossel__btn--ant" id="carrosselAnt" aria-label="Foto anterior">&#8249;</button>
+      <button class="carrossel__btn carrossel__btn--prox" id="carrosselProx" aria-label="Próxima foto">&#8250;</button>
+      <div class="carrossel__pontos" id="carrosselPontos"></div>
+    </section>
+
+  </main>
+
+  <!-- ===================== RODAPÉ ===================== -->
+  <footer class="footer" id="contato">
+    <div class="footer__colunas container">
+      <div>
+        <h4>Institucional</h4>
+        <ul>
+          <li><a href="#inicio">Home</a></li>
+          <li><a href="#sobre">Conheça a G2F</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="#valores">Valores e Missão</a></li>
+          <li><a href="#atuacao">Áreas de Atuação</a></li>
+          <li><a href="#frota">Compliance e Segurança</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="#atuacao">Serviços</a></li>
+          <li><a href="#galeria">Clientes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Informações de contatos</h4>
+        <ul>
+          <li>Telefone: <a href="tel:+5511947481931">(11) 94748-1931</a></li>
+          <li>E-mail: <a href="mailto:g2ftransportes@gmail.com">g2ftransportes@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__base container">
+      <div class="footer__slogan">
+        <span>Conectando caminhos,</span>
+        <img src="img/logo.png" alt="G2F Transportes" width="205" height="49" loading="lazy">
+        <span>Agilizando conquistas.</span>
+      </div>
+      <div class="footer__legal">
+        <p>© <span id="ano">2026</span> G2F TRANSPORTES. Todos os direitos reservados.</p>
+        <a href="#">Termos e Condições</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
