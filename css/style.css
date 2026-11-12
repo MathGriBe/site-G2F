@@ -304,11 +304,42 @@ ul { list-style: none; }
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 40px;
   max-width: 1100px;
   margin-top: 56px;
 }
+
+/* Lista dos 7 valores */
+.valores__lista {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin-top: 64px;
+}
+.valores__lista-cabecalho { text-align: center; margin-bottom: 32px; }
+.valores__lista-cabecalho h3 { font-family: var(--f-rubik); font-weight: 700; font-size: 26px; line-height: .9; }
+.valores__lista-cabecalho .barra { margin: 14px auto 0; height: 7px; }
+
+.valores__itens {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.item-valor {
+  background: var(--card);
+  border: 2px solid rgba(239, 204, 24, .25);
+  border-left: 5px solid var(--amarelo);
+  border-radius: 14px;
+  padding: 18px 20px;
+  transition: transform .25s, border-color .25s;
+}
+.item-valor:hover { transform: translateY(-4px); border-color: rgba(239, 204, 24, .6); border-left-color: var(--amarelo); }
+.item-valor h4 { font-family: var(--f-rubik); font-weight: 700; font-size: 18px; color: var(--amarelo); margin: 0 0 8px; }
+.item-valor p { font-size: 16px; line-height: 1.4; margin: 0; }
 
 .card-valor {
   background: var(--card);
@@ -448,7 +479,28 @@ ul { list-style: none; }
   transition: transform .25s;
 }
 .card-presenca:hover { transform: translateY(-6px); }
-.card-presenca img { height: 110px; width: auto; object-fit: contain; margin: 0 auto 30px; }
+/* Ícones em SVG (no index.html): mesma moldura quadrada e mesmo traço para os 4 */
+.card-presenca__icone {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 22px;
+  background: rgba(239, 204, 24, .08);
+  border: 1px solid rgba(239, 204, 24, .35);
+  transition: background-color .25s, border-color .25s;
+}
+.card-presenca:hover .card-presenca__icone { background: rgba(239, 204, 24, .16); border-color: var(--amarelo); }
+.card-presenca__icone svg {
+  width: 58px;
+  height: 58px;
+  fill: none;
+  stroke: var(--amarelo);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 .card-presenca h3 {
   font-family: var(--f-roboto);
   font-weight: 700;
@@ -590,6 +642,261 @@ ul { list-style: none; }
 .footer__legal a { position: absolute; right: 0; top: 0; }
 
 /* =========================================================
+   ROTAS — mapa do Brasil com as rotas em SVG
+   ========================================================= */
+.rotas {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 75% 60%, #142036 0%, var(--fundo-escuro) 65%);
+  padding: 90px 0;
+}
+.rotas__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.rotas__titulo { font-family: var(--f-rubik); font-weight: 700; font-size: clamp(36px, 4.4vw, 60px); line-height: 1; }
+.rotas__desc { font-size: 18px; line-height: 1.5; color: var(--texto-suave); max-width: 520px; }
+.rotas__desc strong { color: var(--amarelo); font-weight: 600; }
+
+.rotas__legenda { display: grid; gap: 16px; margin: 32px 0 36px; }
+.rotas__legenda li { display: flex; align-items: center; gap: 16px; }
+.rotas__legenda strong { display: block; font-size: 17px; }
+.rotas__legenda span { font-size: 15px; color: var(--texto-suave); }
+
+/* Amostras de linha da legenda, iguais às do mapa */
+.legenda { flex: 0 0 48px; height: 0; border-top: 5px solid var(--amarelo); border-radius: 3px; }
+.legenda--forte { box-shadow: 0 0 10px rgba(239, 204, 24, .7); }
+.legenda--media { border-top-width: 3px; opacity: .8; }
+.legenda--leve  { border-top: 2px dashed rgba(239, 204, 24, .6); }
+
+.rotas__subtitulo { font-size: 15px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--texto-suave); margin-bottom: 12px; }
+.rotas__portos { display: flex; flex-wrap: wrap; gap: 10px; }
+.rotas__portos li {
+  padding: 8px 14px;
+  border: 1px solid rgba(239, 204, 24, .4);
+  border-radius: 999px;
+  font-size: 15px;
+  background: rgba(239, 204, 24, .06);
+}
+
+/* Mapa: imagem e SVG ocupam exatamente o mesmo espaço */
+.rotas__mapa { position: relative; width: 100%; max-width: 660px; margin-inline: auto; aspect-ratio: 661 / 664; }
+.rotas__mapa img, .rotas__svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.rotas__mapa img { opacity: .9; }
+.rotas__svg { overflow: visible; }
+
+.rota path { fill: none; stroke: var(--amarelo); stroke-linecap: round; stroke-linejoin: round; }
+.rota--forte path { stroke-width: 5; filter: drop-shadow(0 0 5px rgba(239, 204, 24, .75)); }
+.rota--media path { stroke-width: 2.8; opacity: .8; }
+.rota--leve path  { stroke-width: 1.6; opacity: .5; stroke-dasharray: 4 6; }
+
+/* "Carga andando": tracinhos claros correndo por cima do corredor principal (criados no JS) */
+.rota-fluxo path {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 2 22;
+  opacity: 0;
+  animation: rota-fluxo 1.4s linear infinite;
+  transition: opacity .6s;
+}
+.rotas--ativa .rota-fluxo path { opacity: .85; transition-delay: 1.8s; }
+@keyframes rota-fluxo { to { stroke-dashoffset: -24; } }
+
+.rotas__calor { opacity: 0; transition: opacity 1.2s .4s; }
+.rotas--ativa .rotas__calor { opacity: 1; }
+
+.rotas__cidades circle { fill: #fff; opacity: .85; }
+
+.porto circle { fill: var(--amarelo); }
+.porto--principal > circle:last-child { stroke: var(--fundo-escuro); stroke-width: 2; }
+.porto__onda { fill: none !important; stroke: var(--amarelo); stroke-width: 2; animation: porto-pulso 2.2s ease-out infinite; }
+@keyframes porto-pulso {
+  from { transform: scale(.8); opacity: .9; }
+  to   { transform: scale(2.6); opacity: 0; }
+}
+
+.rotas__nomes text { font-family: var(--f-rubik); font-size: 14px; font-weight: 600; fill: #fff; paint-order: stroke; stroke: var(--fundo-escuro); stroke-width: 4px; stroke-linejoin: round; }
+.rotas__nomes .nome--sec { font-size: 12px; font-weight: 500; fill: var(--texto-suave); }
+.rotas__nomes .nome--cidade { font-size: 11px; font-weight: 400; fill: rgba(255, 255, 255, .7); stroke-width: 3px; }
+
+/* Linhas sendo "desenhadas" quando a seção aparece (o JS prepara o tamanho de cada uma) */
+.rota--desenhar path { transition: stroke-dashoffset 1.6s ease-in-out; }
+.rota--leve { opacity: 0; transition: opacity 1s 1.6s; }
+.rotas--ativa .rota--leve { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rota-fluxo, .porto__onda { display: none; }
+  .rota--leve, .rotas__calor { opacity: 1; transition: none; }
+}
+
+@media (max-width: 1024px) {
+  .rotas__grid { grid-template-columns: 1fr; }
+  .rotas__mapa { max-width: 560px; }
+}
+@media (max-width: 640px) {
+  .rotas { padding: 52px 0; }
+  .rotas__desc { font-size: 16px; }
+  .rotas__legenda { margin: 24px 0 28px; }
+  .rotas__nomes .nome--cidade { display: none; } /* no celular mostra só os portos */
+  .rotas__nomes text { font-size: 16px; }
+  .rotas__nomes .nome--sec { font-size: 14px; }
+}
+
+/* =========================================================
+   CLIENTES — marquee infinito com as logos
+   ========================================================= */
+.clientes {
+  background: linear-gradient(180deg, #0d1422 0%, #0b0f17 100%);
+  padding: 80px 0 90px;
+  overflow: hidden;
+}
+.clientes__topo { text-align: center; margin-bottom: 44px; }
+.clientes__titulo { font-family: var(--f-rubik); font-weight: 700; font-size: clamp(32px, 4vw, 52px); line-height: 1.05; }
+.clientes__titulo + .barra { margin: 16px auto 18px; }
+.clientes__desc { font-size: 18px; color: var(--texto-suave); max-width: 560px; margin-inline: auto; }
+
+.clientes__faixas { display: grid; gap: 22px; }
+
+.marquee {
+  --duracao: 70s;
+  overflow: hidden;
+  /* bordas esfumaçadas para as logos "entrarem" e "saírem" suavemente */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+/* Duas cópias iguais da lista lado a lado; andar -50% fecha o loop sem emenda */
+.marquee__trilha {
+  display: flex;
+  width: max-content;
+  animation: marquee-rolar var(--duracao) linear infinite;
+}
+.marquee--reverso .marquee__trilha { animation-direction: reverse; }
+
+/* Pausa a fileira quando o mouse (ou o foco do teclado) está sobre ela */
+.marquee:hover .marquee__trilha,
+.marquee:focus-within .marquee__trilha { animation-play-state: paused; }
+
+@keyframes marquee-rolar {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee__lista { display: flex; }
+
+/* Cartão branco do mesmo tamanho para todas as logos */
+.logo-cliente {
+  display: grid;
+  /* linha e coluna travadas no tamanho do cartão; sem isso a grade cresce
+     até o tamanho natural da imagem e o height: 100% vira 1000px+ */
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+  place-items: center;
+  width: 200px;
+  height: 100px;
+  margin-right: 20px; /* margem (não gap) para o -50% bater certinho */
+  padding: 12px;
+  overflow: hidden;   /* corta o excesso quando a logo recebe zoom */
+  background: #fff;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  transition: background-color .3s, border-color .3s;
+}
+
+/* Padronização: a imagem ocupa o cartão inteiro; o --zoom (definido no JS
+   para cada logo) compensa as imagens que vieram com muita margem em volta */
+.logo-cliente img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(var(--zoom, 1));
+  /* tons de cinza; "multiply" faz o fundo branco das imagens sumir no cartão */
+  filter: grayscale(1) contrast(1.15);
+  mix-blend-mode: multiply;
+  opacity: .7;
+  transition: filter .3s, opacity .3s;
+}
+/* Logos com fundo escuro/colorido: inverte para o fundo virar branco
+   e a marca ficar escura, igual às outras */
+.logo-cliente--escuro img { filter: grayscale(1) invert(1) contrast(2.5) brightness(1.15); }
+/* Logo vermelha em fundo escuro: em cinza o vermelho some no fundo,
+   então usa o filtro SVG #filtro-vermelho (está no index.html) */
+.logo-cliente--vermelho img { filter: url(#filtro-vermelho); }
+
+/* Fallback se alguma imagem não carregar: mostra o nome */
+.logo-cliente__nome {
+  font-family: var(--f-rubik);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #4b5563;
+}
+
+/* Hover: cor original. Nas logos escuras o cartão assume a cor de fundo da marca */
+.logo-cliente:hover { border-color: var(--amarelo); }
+.logo-cliente:hover img { filter: none; opacity: 1; }
+.logo-cliente--escuro:hover { background: var(--fundo-marca, #fff); }
+.logo-cliente--escuro:hover img { mix-blend-mode: normal; }
+
+@media (prefers-reduced-motion: reduce) {
+  /* Sem animação: vira uma faixa que a pessoa rola com o dedo/trackpad */
+  .marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  .marquee__trilha { animation: none; }
+  .marquee__lista[aria-hidden="true"] { display: none; }
+}
+
+@media (max-width: 640px) {
+  .clientes { padding: 52px 0 60px; }
+  .clientes__topo { margin-bottom: 30px; }
+  .clientes__desc { font-size: 16px; }
+  .clientes__faixas { gap: 14px; }
+  .logo-cliente { width: 150px; height: 76px; padding: 9px; margin-right: 14px; border-radius: 12px; }
+  .logo-cliente__nome { font-size: 13px; }
+}
+
+/* =========================================================
+   LAYOUT EM PAINÉIS
+   A página tem uma cor de fundo só e cada seção vira um painel
+   arredondado "abraçado" por ela. Para mudar a cor, troque --fundo-pagina.
+   ========================================================= */
+:root {
+  --fundo-pagina: #04070d;
+  --respiro: 16px;        /* espaço entre os painéis e as bordas da tela */
+  --raio-painel: 28px;
+}
+
+body { background: var(--fundo-pagina); }
+.header { background: var(--fundo-pagina); }
+html { scroll-padding-top: calc(var(--altura-header) + var(--respiro)); }
+
+main > section {
+  margin: 0 var(--respiro) var(--respiro);
+  border-radius: var(--raio-painel);
+  border: 1px solid rgba(255, 255, 255, .06);
+  overflow: hidden;
+  isolation: isolate; /* garante que os cantos arredondados cortem tudo, inclusive animações */
+}
+
+/* O rodapé não é painel: fica direto no fundo da página, marcando o fim do conteúdo */
+.footer { background: var(--fundo-pagina); }
+
+/* O hero começa logo abaixo do cabeçalho fixo, em vez de ficar por trás dele */
+.hero {
+  margin-top: calc(var(--altura-header) + var(--respiro));
+  padding-top: 0;
+}
+
+@media (max-width: 640px) {
+  :root { --respiro: 10px; --raio-painel: 20px; }
+}
+
+/* =========================================================
    ANIMAÇÃO AO ROLAR (controlada pelo script.js)
    ========================================================= */
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
@@ -710,6 +1017,13 @@ ul { list-style: none; }
   .card-valor h3 { font-size: 18px; }
   .card-valor .barra { margin: 10px auto 12px; }
   .card-valor p { font-size: 15px; letter-spacing: 0; line-height: 1.45; }
+  .valores__lista { margin-top: 40px; }
+  .valores__lista-cabecalho { margin-bottom: 20px; }
+  .valores__lista-cabecalho h3 { font-size: 20px; }
+  .valores__itens { grid-template-columns: 1fr; gap: 14px; }
+  .item-valor { padding: 14px 16px; }
+  .item-valor h4 { font-size: 16px; }
+  .item-valor p { font-size: 15px; }
 
   .presenca { padding: 32px 0 56px; }
   .presenca__logo { width: 150px; margin-bottom: 28px; }
@@ -721,7 +1035,8 @@ ul { list-style: none; }
   .selo { display: none; }
   .presenca__cards { grid-template-columns: 1fr; gap: 18px; margin-top: 40px; }
   .card-presenca { display: grid; grid-template-columns: 90px 1fr; column-gap: 18px; align-items: center; padding: 20px; }
-  .card-presenca img { grid-row: span 3; height: 70px; margin: 0; }
+  .card-presenca__icone { grid-row: span 3; width: 72px; height: 72px; margin: 0; border-radius: 18px; }
+  .card-presenca__icone svg { width: 44px; height: 44px; }
   .card-presenca h3 { min-height: 0; font-size: 22px; }
   .card-presenca .barra { margin: 10px 0 4px; }
   .card-presenca p { max-width: none; line-height: 1.5; font-size: 15px; }
